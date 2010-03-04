@@ -464,7 +464,7 @@
                     this.slideInfoZone.stop();
                     this.hideInfoSlideShow(num);
                 } else {
-                    this.currentChangeDelay = changeItem.sleekgallery.setDelay(500, this, num);
+                    window.setTimeout(this.changeItem.pass(this, num), 500);
                 }
                 if (this.options.embedLinks) {
                     this.makeLink(num);
@@ -768,12 +768,10 @@
                 }).css({
                     'display': 'block'
                 });
-
-                this.galleryElements[this.currentIter].attr('title', this.galleryData[this.currentIter].title + ' :: ' + this.galleryData[this.currentIter].description);
                 this.currentLink.unbind('click').bind('click',function() {
                     jQuery.fancybox({
-                        'href'			: this.galleryElements[this.currentIter].source,
-                        'title'   		: this.galleryElements[this.currentIter].attr('title')
+                        'href'          : this.galleryData[this.currentIter].link,
+                        'titleShow'     : false
                     });
                 }.pass(this));
             },
