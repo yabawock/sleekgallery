@@ -15,11 +15,15 @@
  * along with JonDesign's SmoothGallery; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
  *
+ * SleekGallery is an enhanced version of the SmoothGallery jQuery port "SlickGallery"
+ * which has been done by Buttgereit und Heidenreich GmbH - http://www.gute-botschafter.de/
+ * 
  * Main Developer: Morton Jonuschat <mjonuschat@gmail.com> - http://github.com/yabawock
  * Many thanks to:
  * - The jQuery team for the great lib
  * - Ariel Flesler (http://flesler.blogspot.com) for all his great libs. Some used here as plugins.
  * - Dav Glass (http://blog.davglass.com/) for the YAHOO.Tools.printf implementation
+ * - Buttgereit und Heidenreich GmbH for the initial port of SmoothGallery to jQuery
  */
 (function($) {
     Function.prototype.pass = function () {
