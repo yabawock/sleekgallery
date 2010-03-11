@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf8" />
+        <title>MoJo's SleekGallery demo</title>
+        <link rel="stylesheet" href="css/layout.css" type="text/css" media="screen" charset="utf-8" />
+        <link rel="stylesheet" href="css/jquery.sleekgallery.css" type="text/css" media="screen" charset="utf-8" />
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.js"></script>
+        <script type="text/javascript" src="http://flesler-plugins.googlecode.com/files/jquery.scrollTo-1.4.2-min.js"></script>
+        <script type="text/javascript" src="scripts/jquery.sleekgallery.js"></script>
+        <script type="text/javascript" src="scripts/jquery.sleekgallery.transitions.js"></script>
+    </head>
+    <body>
+        <h1>
+            <a href="http://github.com/yabawock/"><span class="company">MoJo's</span></a>SleekGallery 1.0.0 <sup>demo</sup>
+        </h1>
+        <script type="text/javascript">
+            /* <![CDATA[ */
+            function startGallery() {
+                var sleekGallery = jQuery('#sleekGallery').sleekGallery({
+                    timed: true,
+                    defaultTransition: 'fadeslideleft'
+                });
+            }
+            jQuery(document).ready(function() {
+                startGallery();
+            });
+            /* ]]> */
+        </script>
+        <div class="content">
+            <div id="sleekGallery">
+                <div class="imageElement">
+                    <h3>Item 1 Title</h3>
+                    <p>Item 1 Description</p>
+                    <a href="#" title="open image" class="open"></a>
+                    <img alt="" src="images/brugges2006/1.jpg" class="full" />
+                    <img alt="" src="images/brugges2006/1-mini.jpg" class="thumbnail" />
+                </div>
+                <div class="imageElement">
+                    <h3>Item 2 Title</h3>
+                    <p>Item 2 Description</p>
+                    <a href="#" title="open image" class="open"></a>
+                    <img alt="" src="images/brugges2006/2.jpg" class="full" />
+                    <img alt="" src="images/brugges2006/2-mini.jpg" class="thumbnail" />
+                </div>
+                <div class="imageElement">
+                    <h3>Item 3 Title</h3>
+                    <p>Item 3 Description</p>
+                    <a href="#" title="open image" class="open"></a>
+                    <img alt="" src="images/brugges2006/3.jpg" class="full" />
+                    <img alt="" src="images/brugges2006/3-mini.jpg" class="thumbnail" />
+                </div>
+                <div class="imageElement">
+                    <h3>Item 4 Title</h3>
+                    <p>Item 4 Description</p>
+                    <a href="#" title="open image" class="open"></a>
+                    <img alt="" src="images/brugges2006/4.jpg" class="full" />
+                    <img alt="" src="images/brugges2006/4-mini.jpg" class="thumbnail" />
+                </div>
+                <div class="imageElement">
+                    <h3>Item 5 Title</h3>
+                    <p>Item 5 Description</p>
+                    <a href="#" title="open image" class="open"></a>
+                    <img alt="" src="images/brugges2006/5.jpg" class="full" />
+                    <img alt="" src="images/brugges2006/5-mini.jpg" class="thumbnail" />
+                </div>
+                <div class="imageElement">
+                    <h3>Item 6 Title</h3>
+                    <p>Item 6 Description</p>
+                    <a href="#" title="open image" class="open"></a>
+                    <img alt="" src="images/brugges2006/6.jpg" class="full" />
+                    <img alt="" src="images/brugges2006/6-mini.jpg" class="thumbnail" />
+                </div>
+                <div class="imageElement">
+                    <h3>Item 7 Title</h3>
+                    <p>Item 7 Description</p>
+                    <a href="#" title="open image" class="open"></a>
+                    <img alt="" src="images/brugges2006/7.jpg" class="full" />
+                    <img alt="" src="images/brugges2006/7-mini.jpg" class="thumbnail" />
+                </div>
+                <div class="imageElement">
+                    <h3>Item 8 Title</h3>
+                    <p>Item 8 Description</p>
+                    <a href="#" title="open image" class="open"></a>
+                    <img alt="" src="images/brugges2006/8.jpg" class="full" />
+                    <img alt="" src="images/brugges2006/8-mini.jpg" class="thumbnail" />
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

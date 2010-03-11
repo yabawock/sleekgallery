@@ -1,3 +1,7 @@
+v1.0.3:
+  * Ported additional transitions "fadeslideleft", "continuoushorizontal" and "continuosvertical"
+  * Added demos for new transitions
+
 v1.0.2:
   * Implemented transitions "fadebg" and "crossfade"
 
