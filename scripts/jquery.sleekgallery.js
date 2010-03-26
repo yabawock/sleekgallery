@@ -239,7 +239,8 @@
                 useHistoryManager: false,
                 customHistoryKey: false,
                 /* Plugins: FancyBox */
-                useFancyBox: true
+                useFancyBox: true,
+                showFancyBoxArrows: false
             },
             initialize: function(element, options) {
                 this.options = jQuery.extend({}, this.options, options);
@@ -773,10 +774,25 @@
                     'display': 'block'
                 });
                 this.currentLink.unbind('click').bind('click',function() {
-                    jQuery.fancybox({
-                        'href'          : this.galleryData[this.currentIter].link,
-                        'titleShow'     : false
-                    });
+                    if(this.options.showFancyBoxArrows) {
+                        var galleryData = jQuery.makeArray(this.galleryData);
+                        var moveEntries = galleryData.splice(0,this.currentIter);
+                        jQuery.merge(galleryData,moveEntries);
+                        jQuery.fancybox(jQuery.map(galleryData, function(elem, i) {
+                                return {
+                                    'href'    : elem.link, 
+                                    'title'   : 'Image ' +  (i + 1) + ' / ' + galleryData.length
+                                };
+                            }), {
+                                'titleShow'     : true
+                            }
+                        );
+                    } else {
+                        jQuery.fancybox({
+                            'href'          : this.galleryData[this.currentIter].link,
+                            'titleShow'     : false
+                        });                        
+                    }
                     return false;
                 }.pass(this));
             },
