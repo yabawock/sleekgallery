@@ -777,6 +777,7 @@
                         'href'          : this.galleryData[this.currentIter].link,
                         'titleShow'     : false
                     });
+                    return false;
                 }.pass(this));
             },
             flushGallery: function() {
