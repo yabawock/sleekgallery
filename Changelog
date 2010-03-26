@@ -1,3 +1,8 @@
+v1.0.4:
+  * Fixed bug with FancyBox not being initalized on first image
+  * Fixed bug with FancyBox not preventing the default click event
+  * Added support for image groups in FancyBox
+
 v1.0.3:
   * Ported additional transitions "fadeslideleft", "continuoushorizontal" and "continuosvertical"
   * Added demos for new transitions
