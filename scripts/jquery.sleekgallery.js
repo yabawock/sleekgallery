@@ -417,7 +417,7 @@
                     window.setTimeout(this.showInfoSlideShow.pass(this), 1000);
                 }
                 if (this.options.useFancyBox) {
-                    window.setTimeout(this.makeFancyBox.pass(this), this);
+                    window.setTimeout(this.makeFancyBox.pass(this), 10);
                 }
                 var textShowCarousel = this.printf(this.options.textShowCarousel, this.currentIter+1, this.maxIter);
 
