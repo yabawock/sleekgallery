@@ -1,5 +1,5 @@
 /*
- * This file is part of SleekGallery v1.0.4.
+ * This file is part of SleekGallery v1.0.5.
  *
  * SleekGallery is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -12,7 +12,7 @@
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with JonDesign's SmoothGallery; if not, write to the Free Software
+ * along with MoJo's SlickGallery; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
  *
  * SleekGallery is an enhanced version of the SmoothGallery jQuery port "SlickGallery"
@@ -154,7 +154,7 @@
          * A jQuery port of JonDesign's SmoothGallery 2.1beta1
          * (http://smoothgallery.jondesign.net/)
          *
-         * @version 1.0.2
+         * @version 1.0.5
          * @author Morton Jonuschat <mjonuschat@gmail.com>
          * @copyright (c) 2010 - Morton Jonuschat <mjonuschat@gmail.com>
          * @license GPL v3

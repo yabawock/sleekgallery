@@ -1,3 +1,8 @@
+v1.0.5:
+  * Fix flushGallery() and flushThumbnails()
+  * Implement custom event triggers
+  * Whitespace cleanup
+
 v1.0.4:
   * Fixed bug with FancyBox not being initalized on first image
   * Fixed bug with FancyBox not preventing the default click event
