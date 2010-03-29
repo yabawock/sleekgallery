@@ -244,6 +244,7 @@
             },
             initialize: function(element, options) {
                 this.options = jQuery.extend({}, this.options, options);
+                jQuery(this).trigger('onInit');
                 this.timerID = null;
                 this.currentIter = 0;
                 this.lastIter = 0;
@@ -319,6 +320,7 @@
                 currentArrayPlace = this.galleryData.length;
                 options = this.options;
                 jQuery.merge(this.galleryData, this.populateGallery(this.populateFrom, currentArrayPlace));
+                jQuery(this).trigger('onPopulated');
             },
             populateGallery: function (element, startNumber) {
                 var data = [];
@@ -408,6 +410,7 @@
                 jQuery(element).replaceWith(newElement);
             },
             startSlideShow: function () {
+                jQuery(this).trigger('onStart');
                 this.loadingElement.css({'display':'none'});
                 this.lastIter = this.maxIter - 1;
                 this.currentIter = 0;
@@ -432,6 +435,7 @@
                 }
             },
             nextItem: function () {
+                jQuery(this).trigger('onNextCalled');
                 this.nextIter = this.currentIter+1;
                 if (this.nextIter >= this.maxIter) {
                     this.nextIter = 0;
@@ -440,6 +444,7 @@
                 this.goTo(this.nextIter);
             },
             prevItem: function() {
+                jQuery(this).trigger('onPreviousCalled');
                 this.nextIter = this.currentIter-1;
                 if (this.nextIter <= -1) {
                     this.nextIter = this.maxIter - 1;
@@ -477,6 +482,7 @@
                 this.prepareTimer();
             },
             changeItem: function(num) {
+                jQuery(this).trigger('onStartChanging');
                 this.galleryInit = 0;
                 if (this.currentIter != num) {
                     for(i=0;i<this.maxIter;i++) {
@@ -497,6 +503,7 @@
                     this.carouselBtn.html(textShowCarousel).attr('title', textShowCarousel);
                 }
                 this.doSlideShow.pass(this)();
+                jQuery(this).trigger('onChanged');
             },
             clearTimer: function() {
                 if (this.options.timed) {
@@ -591,6 +598,7 @@
                 }
             },
             showCarousel: function () {
+                jQuery(this).trigger('onShowCarousel');
                 this.carouselContainer.animate({
                     'opacity': this.options.carouselMaximizedOpacity,
                     'top': 0
@@ -601,11 +609,13 @@
                         this.carouselContainer.bind('mouseleave', this, function() {
                             this.carouselWrapper.stop();
                             this.carouselElement.scroll = null;
+                            jQuery(this).trigger('onCarouselShown');
                         }.pass(this));
                     }.pass(this)
                 });
             },
             hideCarousel: function () {
+                jQuery(this).trigger('onHideCarousel');
                 var targetTop = this.options.carouselMinimizedHeight - this.carouselContainer.normalHeight;
                 this.carouselContainer.animate({
                     'opacity': this.options.carouselMinimizedOpacity,
@@ -615,6 +625,7 @@
                         this.carouselActive = false;
                         this.carouselElement.scroll = null;
                         this.carouselWrapper.stop();
+                        jQuery(this).trigger('onCarouselHidden');
                     }.pass(this)
                 });
             },
@@ -710,6 +721,7 @@
                 window.setTimeout(this.showInfoSlideShow.pass(this), 500);
             },
             showInfoSlideShow: function() {
+                jQuery(this).trigger('onShowInfopane');
                 this.slideInfoZone.stop();
                 jQuery('h2', this.slideInfoZone).html(this.galleryData[this.currentIter].title);
                 jQuery('p', this.slideInfoZone).html(this.galleryData[this.currentIter].description);
@@ -724,6 +736,7 @@
                 }
             },
             hideInfoSlideShow: function(num) {
+                jQuery(this).trigger('onHideInfopane');
                 if(!num) {
                     num = 0;
                 }
@@ -826,7 +839,9 @@
                 this.doSlideShow(1);
             },
             initHistory: function() {
+                jQuery(this).trigger('onHistoryInit');
                 // TODO: Find a jQuery history plugin
+                jQuery(this).trigger('onHistoryInited');
             },
             /**
              * @author Dav Glass <dav.glass@yahoo.com>
