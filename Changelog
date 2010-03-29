@@ -1,5 +1,6 @@
 v1.1.1 (unreleased):
   * Fix slideInfoZone animating twice when selecting a new gallery set
+  * Fix syntax in pass() definition to make IE happy
 
 v1.1.0:
   * Implement gallery sets as available in SmoothGallery 2.1beta

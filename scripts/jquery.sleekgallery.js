@@ -34,7 +34,7 @@
         object = args.shift();
         return function() {
             return instance.apply(object, args);
-        }
+        };
     };
     // Plugin definition
     $.fn.extend({
