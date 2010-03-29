@@ -260,7 +260,7 @@
                     this.options.useFancyBox = false;
                 }
 
-                if((this.options.activateCarouselScroller || this.options.showCarousel) && !jQuery.isFunction(jQuery.scrollTo)) {
+                if((this.options.activateCarouselScroller || this.options.showCarousel) && !jQuery.isFunction(jQuery.scrollTo)) {
                     this.options.activateCarouselScroller = false;
                     this.options.showCarousel = false;
                 }
@@ -577,7 +577,7 @@
                 }
             },
             flushCarousel: function() {
-                this.thumbnailElements.each(function(element) {
+                jQuery.each(this.thumbnailElements, function(index, element) {
                     element.remove();
                     element = null;
                 });
@@ -724,6 +724,9 @@
                 }
             },
             hideInfoSlideShow: function(num) {
+                if(!num) {
+                    num = 0;
+                }
                 this.slideInfoZone.stop();
                 if(this.options.slideInfoZoneSlide) {
                     this.slideInfoZone.animate({'opacity': 0, 'height': 0}, {'complete': this.changeItem.pass(this, num)});
@@ -780,7 +783,7 @@
                         jQuery.merge(galleryData,moveEntries);
                         jQuery.fancybox(jQuery.map(galleryData, function(elem, i) {
                                 return {
-                                    'href'    : elem.link, 
+                                    'href'    : elem.link,
                                     'title'   : 'Image ' +  (i + 1) + ' / ' + galleryData.length
                                 };
                             }), {
@@ -791,13 +794,13 @@
                         jQuery.fancybox({
                             'href'          : this.galleryData[this.currentIter].link,
                             'titleShow'     : false
-                        });                        
+                        });
                     }
                     return false;
                 }.pass(this));
             },
             flushGallery: function() {
-                this.galleryElements.each(function(element) {
+                jQuery.each(this.galleryElements, function(index, element) {
                     element.remove();
                     element = null;
                 });
