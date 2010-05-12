@@ -170,8 +170,8 @@
                     }
                 },
                 crossfade: function(oldImage, newImage, oldPos, newPos){
-                    newImage.animate({'opacity': 1}, this.options.fadeDuration, 'linear');
-                    oldImage.animate({'opacity': 0}, this.options.fadeDuration, 'linear');
+                    newImage.animate({'opacity': 1}, { duration : this.options.fadeDuration, queue : false });
+                    oldImage.animate({'opacity': 0}, { duration : this.options.fadeDuration, queue : false });
                 },
                 fadebg: function(oldImage, newImage, oldPos, newPos){
                     oldImage.animate(
@@ -285,7 +285,7 @@
                     this.initHistory();
                 }
 
-                if ((this.options.embedLinks)|(this.options.useFancyBox))
+                if ((this.options.embedLinks)||(this.options.useFancyBox))
                 {
                     this.currentLink = jQuery('<a>').addClass('open').attr({
                         'href' : '#',
@@ -388,7 +388,7 @@
                         currentImg.loaded = false;
                         currentImg.preload = function() {
                             if(!this.loaded) {
-                                imgLoader = jQuery('<img>').attr('src', this.source).bind('load', this, function(event){
+                                imgLoader = jQuery('<img>').bind('load', this, function(event){
                                     event.data.loaded = true;
                                     event.data.css({
                                         'backgroundImage' : "url('" + event.data.source + "')"
@@ -396,6 +396,7 @@
                                     event.data.width = jQuery(this).attr('width');
                                     event.data.height = jQuery(this).attr('height');
                                 });
+                                imgLoader.attr('src', this.source);
                             }
                         };
                     } else {
@@ -457,7 +458,7 @@
                 if(this.options.preloader) {
                     this.galleryElements[num].preload();
                     if (num==0) {
-                        this.galleryElements[this.maxIter - 1].preload();
+                      this.galleryElements[this.maxIter - 1].preload();
                     } else {
                         this.galleryElements[num - 1].preload();
                     }
@@ -517,9 +518,10 @@
             },
             doSlideShow: function(position) {
                 if (this.galleryInit == 1) {
-                    imgPreloader = jQuery('<img/>').attr('src', this.galleryData[0].image).bind('load', this, function(event) {
-                        event.data.startSlideShow();
-                    });
+                    imgPreloader = jQuery('<img/>').bind('load', function(event) {
+                        this.startSlideShow();
+                    }.pass(this));
+                    imgPreloader.attr('src', this.galleryData[0].image)
 
                     if(this.options.preloader) {
                         this.galleryElements[0].preload();
